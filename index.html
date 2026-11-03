@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Still & Stay photographs and films hotels, resorts and restaurants: rooms, food and drink, drone and short films for websites, booking listings and social.">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Still & Stay · Hospitality photography & film">
+<meta property="og:description" content="Still & Stay photographs and films hotels, resorts and restaurants: rooms, food and drink, drone and short films for websites, booking listings and social.">
+<meta property="og:image" content="w-hero-room.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ffffff'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23141820'%3Es%3Ctspan fill='%23A2865A' font-style='italic'%3E%26amp;%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Still &amp; Stay · Hospitality photography &amp; film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a white hospitality portfolio after Workshop Hospitality. Image-only opening, a short statement,
+   a drag row of selected frames, a filterable project index whose cards open case-study pages,
+   the glass-detail feature, an hour-by-hour pinned story, services, and a white contact footer. Deliberately single-theme: white is the brand. */
+:root{
+  color-scheme:light;
+  --white:#FFFFFF;
+  --linen:#F6F4F0;      /* the one warm off-white, for alternating bands */
+  --ink:#141820;        /* near-black with a navy cast */
+  --navy:#1E2B47;       /* the runner navy from the rooms */
+  --brass:#A2865A;      /* hospitality brass, used sparingly */
+  --grey:#6E7280;
+  --hair:#E4E1DA;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:var(--body);font-weight:300;font-size:1.02rem;line-height:1.7}
+.wrap{max-width:1360px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1.5px solid var(--navy);outline-offset:3px}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);font-weight:400}
+.more{display:inline-flex;gap:8px;align-items:center;font-size:.9rem;text-decoration:none;border:0;border-bottom:1px solid currentColor;padding:0 0 2px;cursor:pointer;background:none}
+section{scroll-margin-top:70px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--white)}
+header{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:50;transition:background .5s,color .5s,box-shadow .5s;color:#fff}
+header.solid{background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 1px 0 var(--hair);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:20px}
+.mark{font-family:var(--display);font-size:1.5rem;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.mark i{font-style:italic;color:var(--brass)}
+nav{display:flex;gap:clamp(16px,3vw,40px);align-items:center}
+nav a{text-decoration:none;font-size:.95rem;letter-spacing:.02em;opacity:.85;transition:opacity .3s}
+nav a:hover{opacity:1}
+nav .enq{border:1px solid currentColor;padding:6px 18px;opacity:1}
+
+/* hero: image only */
+.hero{position:relative;height:min(92vh,980px);min-height:520px;overflow:hidden;background:#d9d6cf}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform-origin:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,12,16,.38),rgba(10,12,16,0) 26%,rgba(10,12,16,0) 70%,rgba(10,12,16,.35))}
+.hero-cap{position:absolute;z-index:1;left:0;right:0;bottom:0;color:#fff}
+.hero-cap .wrap{display:flex;justify-content:space-between;align-items:end;padding-block:28px;gap:16px;flex-wrap:wrap}
+.hero-cap p{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+
+/* statement */
+.statement{padding-block:clamp(80px,12vw,170px) clamp(60px,9vw,120px)}
+.statement h1{font-size:clamp(2.2rem,5.4vw,4.8rem);max-width:17ch}
+.statement h1 em{font-style:italic;color:var(--brass)}
+.statement-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,6vw,100px);margin-top:clamp(40px,6vw,72px);align-items:start}
+.statement-row p{color:var(--grey);max-width:52ch;font-size:1.06rem}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:1px solid var(--hair);padding-top:20px}
+.facts strong{display:block;font-weight:400;font-size:.98rem;color:var(--ink);margin-top:4px}
+
+/* selected frames row */
+.frames{padding-block:0 clamp(80px,10vw,140px)}
+.row-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.row-head h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.ctrl{display:flex;gap:10px}
+.ctrl button{width:48px;height:48px;border:1px solid var(--hair);background:var(--white);cursor:pointer;font-size:1.05rem;transition:border-color .3s}
+.ctrl button:hover{border-color:var(--ink)}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:max(20px,calc((100vw - 1360px)/2 + 20px));padding-right:20px;cursor:grab;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.track.drag{cursor:grabbing;scroll-snap-type:none}
+.frame{flex:0 0 clamp(270px,36vw,560px);scroll-snap-align:start;margin:0}
+.frame .ph{aspect-ratio:3/2;overflow:hidden;background:var(--linen)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease);pointer-events:none;-webkit-user-drag:none}
+.frame:hover img{transform:scale(1.04)}
+.frame figcaption{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-top:14px}
+.frame h3{font-size:1.3rem}
+.frame .eyebrow{font-size:.66rem}
+
+/* work index */
+.work{background:var(--linen);padding-block:clamp(80px,10vw,140px)}
+.work-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.work-head h2{font-size:clamp(2.2rem,5vw,4rem)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1px solid #d9d5cc;background:transparent;padding:7px 16px;cursor:pointer;font-size:.88rem;letter-spacing:.02em;transition:all .3s}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,3vw,44px) clamp(20px,3vw,36px)}
+.card{display:block;text-align:left;border:0;padding:0;background:none;cursor:pointer;width:100%}
+.card .ph{aspect-ratio:3/2;overflow:hidden;background:#e9e6e0}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease)}
+.card:hover img{transform:scale(1.04)}
+.card .meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:16px}
+.card h3{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+.card .tags{color:var(--grey);font-size:.82rem;letter-spacing:.06em;margin-top:2px}
+.card[hidden]{display:none}
+
+/* the details: glass feature */
+.details{padding-block:clamp(90px,12vw,170px)}
+.details-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,7vw,110px);align-items:center}
+.zoomable{display:block;border:0;padding:0;background:var(--linen);cursor:zoom-in;overflow:hidden;width:100%}
+.zoomable img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s var(--ease)}
+.zoomable:hover img{transform:scale(1.035)}
+.details-hero{margin:0}
+.details-hero .zoomable{aspect-ratio:4/5}
+.details-hero figcaption{margin-top:12px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.details-copy h2{font-size:clamp(2.2rem,4.6vw,4rem)}
+.details-copy h2 em{font-style:italic;color:var(--brass)}
+.details-copy .lede{color:var(--grey);margin-top:24px;max-width:46ch;font-size:1.06rem}
+.details-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px}
+.details-row .zoomable{aspect-ratio:3/4}
+
+/* hour by hour */
+.hours{background:var(--linen);padding-block:clamp(80px,10vw,140px)}
+.hours-head h2{font-size:clamp(2rem,4vw,3.4rem);max-width:20ch}
+.hours-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);margin-top:clamp(36px,5vw,60px);align-items:start}
+.hours-stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px);aspect-ratio:4/5;max-height:calc(100vh - 140px);width:100%;overflow:hidden;background:#e9e6e0}
+.hours-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.2s var(--ease),transform 6s var(--ease)}
+.hours-stage img.on{opacity:1;transform:scale(1)}
+.clock{position:absolute;left:18px;right:18px;bottom:18px;display:flex;align-items:center;gap:14px;color:#fff;font-family:var(--display);font-size:1.6rem;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.clock i{flex:1;height:1px;background:rgba(255,255,255,.4);position:relative}
+.clock i::after{content:"";position:absolute;left:0;top:-1px;height:3px;width:var(--p,0%);background:#fff;transition:width 1s var(--ease)}
+.hours-steps{list-style:none;margin:0;padding:0}
+.hours-steps li{min-height:62vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid #d9d5cc;opacity:.38;transition:opacity .8s var(--ease)}
+.hours-steps li:last-child{min-height:48vh}
+.hours-steps li.on{opacity:1}
+.hours-steps .t{font-family:var(--display);font-style:italic;color:var(--brass);font-size:1.3rem}
+.hours-steps h3{font-size:clamp(1.8rem,3vw,2.6rem);margin:6px 0 12px}
+.hours-steps p{color:var(--grey);max-width:40ch}
+
+/* services */
+.services{background:var(--linen);padding-block:clamp(80px,10vw,140px)}
+.svc-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;margin-bottom:40px;align-items:end}
+.svc-head h2{font-size:clamp(2rem,4vw,3.4rem)}
+.svc-head p{color:var(--grey);max-width:50ch}
+.svc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(20px,3vw,48px)}
+.svc li{border-top:1px solid #d9d5cc;padding-block:24px 30px}
+.svc .n{font-family:var(--display);font-style:italic;color:var(--brass);font-size:1.1rem}
+.svc h3{font-size:1.45rem;margin:6px 0 8px}
+.svc p{color:var(--grey);font-size:.96rem}
+
+/* contact */
+.contact{padding-block:clamp(90px,12vw,160px) clamp(40px,6vw,70px)}
+.contact h2{font-size:clamp(2.6rem,7vw,6.2rem);max-width:12ch}
+.contact h2 em{font-style:italic;color:var(--brass)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);margin-top:clamp(40px,6vw,64px);align-items:start}
+.contact .lede{color:var(--grey);max-width:44ch}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:28px;background:var(--navy);color:#fff;text-decoration:none;padding:15px 26px;font-size:.95rem;letter-spacing:.04em;transition:background .3s}
+.cta:hover{background:var(--ink)}
+.rows{display:grid}
+.row{display:grid;gap:2px;padding-block:16px;border-top:1px solid var(--hair)}
+.row .v{font-family:var(--display);font-size:1.4rem;text-decoration:none;overflow-wrap:anywhere;user-select:all}
+a.v:hover{color:var(--navy)}
+.copy{justify-self:start;margin-top:6px;border:1px solid var(--hair);background:none;padding:4px 12px;font-size:.78rem;cursor:pointer}
+footer{border-top:1px solid var(--hair);padding-block:22px;font-size:.85rem;color:var(--grey)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{text-decoration:none}
+
+/* case study */
+.case{position:fixed;inset:0;z-index:80;background:var(--white);overflow-y:auto;overscroll-behavior:contain}
+.case-bar{position:sticky;top:0;z-index:2;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);padding-top:env(safe-area-inset-top,0px)}
+.case-bar .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:16px;gap:12px}
+.case-bar button{background:none;border:0;cursor:pointer;font-size:.95rem;letter-spacing:.02em;padding:6px 0}
+.case-hero{aspect-ratio:21/9;max-height:72vh;width:100%;overflow:hidden;background:var(--linen)}
+.case-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.case-intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,6vw,90px);padding-block:clamp(48px,7vw,90px)}
+.case-intro h2{font-size:clamp(2.4rem,6vw,5rem)}
+.case-intro .tags{color:var(--grey);margin-top:12px;letter-spacing:.06em;font-size:.9rem}
+.case-intro p.desc{margin-top:28px;color:var(--grey);max-width:56ch;font-size:1.06rem}
+.spec{display:grid;align-content:start;margin:0}
+.spec div{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:12px;padding-block:14px;border-top:1px solid var(--hair)}
+.spec dt{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);padding-top:3px}
+.spec dd{margin:0}
+.case-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);padding-bottom:clamp(60px,8vw,110px)}
+.case-gallery button{border:0;padding:0;background:var(--linen);cursor:zoom-in;overflow:hidden;display:block}
+.case-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease)}
+.case-gallery button:hover img{transform:scale(1.03)}
+.case-gallery .full{grid-column:1/-1;aspect-ratio:16/9}
+.case-gallery .half{aspect-ratio:4/5}
+.case-next{border-top:1px solid var(--hair);padding-block:clamp(40px,6vw,70px)}
+.case-next button{background:none;border:0;cursor:pointer;text-align:left;padding:0}
+.case-next h3{font-size:clamp(2rem,5vw,4rem);margin-top:6px}
+
+/* film */
+.card .ph{position:relative}
+.card-film{width:100%;height:100%;object-fit:cover;display:block}
+.film-badge{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);color:var(--ink);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px}
+.case-film{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;padding-bottom:clamp(48px,7vw,90px)}
+.case-film[hidden]{display:none}
+.film-copy h3{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:10px 0 14px}
+.film-copy p:not(.eyebrow){color:var(--grey);max-width:40ch}
+.film-frame{justify-self:center;width:min(100%,420px);aspect-ratio:9/16;background:#111;box-shadow:0 40px 80px -40px rgba(20,24,32,.45)}
+.film-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#111}
+@media (max-width:900px){.case-film{grid-template-columns:minmax(0,1fr)}}
+.case-bts{padding-bottom:clamp(60px,8vw,110px)}
+.case-bts[hidden]{display:none}
+.bts-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:8px 24px;align-items:end;margin-bottom:22px}
+.bts-head .eyebrow{grid-column:1/-1}
+.bts-head h3{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+.bts-head p:not(.eyebrow){color:var(--grey);max-width:48ch}
+.bts-frame{aspect-ratio:16/9;background:#111}
+.bts-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#111}
+@media (max-width:700px){.bts-head{grid-template-columns:minmax(0,1fr)}}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:100vw;max-height:100vh}
+dialog::backdrop{background:rgba(255,255,255,.97)}
+.lb{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:70px max(70px,env(safe-area-inset-right,0px)) 80px max(70px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 60px -30px rgba(20,24,32,.35)}
+.lb button{position:absolute;width:48px;height:48px;border:1px solid var(--hair);background:#fff;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.lb .x{top:max(18px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px))}
+.lb .prev{left:max(14px,env(safe-area-inset-left,0px));top:calc(50% - 24px)}
+.lb .next{right:max(14px,env(safe-area-inset-right,0px));top:calc(50% - 24px)}
+.lb .cap{position:absolute;bottom:max(26px,env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+
+@media (max-width:900px){
+  .statement-row,.details-grid,.hours-grid,.svc-head,.contact-grid,.case-intro{grid-template-columns:minmax(0,1fr)}
+  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hours-stage{aspect-ratio:auto;height:46vh;max-height:none;z-index:2;top:calc(env(safe-area-inset-top,0px) + 64px)}
+  .hours-steps li{min-height:55vh}
+}
+@media (max-width:600px){
+  nav a.hide-sm{display:none}
+  .index,.case-gallery{grid-template-columns:minmax(0,1fr)}
+  .svc,.facts{grid-template-columns:minmax(0,1fr)}
+  .details-row{gap:8px}
+  .hours-stage{aspect-ratio:auto;height:42vh;max-height:none;z-index:2;top:calc(env(safe-area-inset-top,0px) + 64px)}
+  .hours-steps li{min-height:52vh}
+  .case-hero{aspect-ratio:4/5}
+  .lb{padding:60px 12px 70px}
+  .lb .prev,.lb .next{top:auto;bottom:max(14px,env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Still and Stay, home">still <i>&amp;</i> stay</a>
+    <nav aria-label="Main">
+      <a href="#work">work</a>
+      <a href="#hours" class="hide-sm">hour by hour</a>
+      <a href="#services" class="hide-sm">services</a>
+      <a href="#contact" class="enq">enquire</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="A hotel room in golden afternoon light">
+    <picture><source media="(max-width: 700px)" srcset="w-hero-room-m.jpg"><img id="hero-img" src="w-hero-room.jpg" alt="Golden afternoon light across a white hotel bed, mountains through the open window" fetchpriority="high"></picture>
+    <div class="hero-cap"><div class="wrap"><p>Eden Hotel · afternoon light</p><p>Photo · Film · Drone</p></div></div>
+  </section>
+
+  <section class="statement wrap" aria-label="About">
+    <p class="eyebrow">Hospitality photography &amp; film</p>
+    <h1 style="margin-top:22px">Calm, honest imagery for places worth <em>staying.</em></h1>
+    <div class="statement-row">
+      <p>Still &amp; Stay photographs and films hotels, resorts and restaurants the way guests remember them: morning light in the room, the table before service, the garden on the walk back. Every frame is made for your website, your booking listings and your social channels.</p>
+      <div class="facts">
+        <div><span class="eyebrow">Stills</span><strong>Rooms, F&amp;B, amenities</strong></div>
+        <div><span class="eyebrow">Motion</span><strong>Reels, films, drone</strong></div>
+        <div><span class="eyebrow">Details</span><strong>Styling, glassware, linen</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="frames" aria-labelledby="h-frames">
+    <div class="wrap row-head">
+      <div><p class="eyebrow">Selected frames</p><h2 id="h-frames" style="margin-top:10px">Recent moments</h2></div>
+      <div class="ctrl"><button type="button" id="tr-prev" aria-label="Scroll back">←</button><button type="button" id="tr-next" aria-label="Scroll forward">→</button></div>
+    </div>
+    <div class="track" id="track" tabindex="0" aria-label="Selected frames, drag or scroll sideways"></div>
+  </section>
+
+  <section class="work" id="work" aria-labelledby="h-work">
+    <div class="wrap">
+      <div class="work-head">
+        <div><p class="eyebrow">Work</p><h2 id="h-work" style="margin-top:10px">All projects</h2></div>
+        <div class="filters" role="group" aria-label="Filter projects" id="filters">
+          <button type="button" aria-pressed="true" data-f="all">all</button>
+          <button type="button" aria-pressed="false" data-f="hotel">hotel</button>
+          <button type="button" aria-pressed="false" data-f="restaurant">restaurant</button>
+          <button type="button" aria-pressed="false" data-f="travel">food &amp; travel</button>
+          <button type="button" aria-pressed="false" data-f="brand">brand</button>
+        </div>
+      </div>
+      <div class="index" id="index"></div>
+    </div>
+  </section>
+
+  <section class="details" id="details" aria-labelledby="h-details">
+    <div class="wrap details-grid">
+      <figure class="details-hero">
+        <button type="button" class="zoomable" data-src="w-img29.jpg" data-cap="Glassware at the bar · Nature Café &amp; Restaurant"><img loading="lazy" src="w-img29.jpg" alt="Wine glasses hanging upside down above a bar, catching warm light"></button>
+        <figcaption>Glassware at the bar · Nature Café</figcaption>
+      </figure>
+      <div class="details-copy">
+        <p class="eyebrow">The details</p>
+        <h2 id="h-details" style="margin-top:12px">Guests remember the <em>small things.</em></h2>
+        <p class="lede">The light caught in a row of glasses. Bath amenities lined up on a lit shelf. The first coffee by the window. We slow down for the details that tell guests how a place will feel, and give them the same care as the wide shots.</p>
+        <div class="details-row">
+          <button type="button" class="zoomable" data-src="w-unknown24.jpg" data-cap="Towel styling · Nature Resort"><img loading="lazy" src="w-unknown24.jpg" alt="Rolled white towels on a navy bed runner"></button>
+          <button type="button" class="zoomable" data-src="w-f-img7817.jpg" data-cap="Bath amenities · Nature Resort"><img loading="lazy" src="w-f-img7817.jpg" alt="Shampoo and body wash bottles on a lit shelf with rolled towels"></button>
+          <button type="button" class="zoomable" data-src="w-img8931.jpg" data-cap="Morning coffee · Nature Café"><img loading="lazy" src="w-img8931.jpg" alt="Guest holding a coffee cup by the window"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours" id="hours" aria-labelledby="h-hours">
+    <div class="wrap">
+      <div class="hours-head"><p class="eyebrow">Hour by hour</p><h2 id="h-hours" style="margin-top:10px">One day, photographed at its best light</h2></div>
+      <div class="hours-grid">
+        <div class="hours-stage" aria-hidden="true">
+          <img src="w-f-img7780.jpg" alt="" class="on">
+          <img src="w-img0166.jpg" alt="">
+          <img src="w-f-img7914.jpg" alt="">
+          <img src="w-img35.jpg" alt="">
+          <img src="w-img34.jpg" alt="">
+          <div class="clock"><span id="clock-time">07:00</span><i id="clock-bar"></i></div>
+        </div>
+        <ol class="hours-steps" id="hours-steps">
+          <li class="on"><span class="t">07:00</span><h3>First light</h3><p>Mist lifting off the mountains, the balcony chairs still empty. Soft, low sun for terraces, views and breakfast.</p></li>
+          <li><span class="t">12:00</span><h3>High sun</h3><p>The pool at its brightest blue. Midday is for water, terraces and anything that should look fresh and clean.</p></li>
+          <li><span class="t">15:30</span><h3>Afternoon</h3><p>Even light through the tall windows and across the painted walls. The hour for rooms and suites, styled bed by bed.</p></li>
+          <li><span class="t">17:45</span><h3>Golden hour</h3><p>The courtyard turns warm and the lanterns start to glow. Twenty minutes we plan the whole day around.</p></li>
+          <li><span class="t">19:00</span><h3>Blue hour</h3><p>Lights on, sky still holding colour. Exteriors, dining and the bar as guests arrive.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="h-svc">
+    <div class="wrap">
+      <div class="svc-head">
+        <div><p class="eyebrow">Services</p><h2 id="h-svc" style="margin-top:10px">What a shoot covers</h2></div>
+        <p>Every shoot is planned around the property and quoted to it. Choose what you need; rates on request.</p>
+      </div>
+      <ul class="svc">
+        <li><span class="n">i.</span><h3>Rooms &amp; suites</h3><p>Every room category, wide and in detail, for your website, Booking.com and Agoda.</p></li>
+        <li><span class="n">ii.</span><h3>Food &amp; beverage</h3><p>Menu dishes, the bar, glassware and the dining room before and during service.</p></li>
+        <li><span class="n">iii.</span><h3>Grounds &amp; amenities</h3><p>Pools, gardens and shared spaces, each shot at its best hour.</p></li>
+        <li><span class="n">iv.</span><h3>Details &amp; styling</h3><p>Glassware, linen, turn-down and table settings, styled and lit one by one.</p></li>
+        <li><span class="n">v.</span><h3>Drone</h3><p>The property and the landscape around it from above.</p></li>
+        <li><span class="n">vi.</span><h3>Reels &amp; films</h3><p>Vertical edits for Instagram and TikTok, and a longer highlight film.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact" aria-labelledby="h-contact">
+    <p class="eyebrow">Bookings &amp; enquiries</p>
+    <h2 id="h-contact" style="margin-top:18px">Let’s plan your <em>shoot.</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p class="lede">Tell us about your property, the dates you have in mind and where the images will be used.</p>
+        <a class="cta" href="https://wa.me/918779666356" target="_blank" rel="noopener">Message on WhatsApp <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="eyebrow">WhatsApp</span><a class="v" href="https://wa.me/918779666356" target="_blank" rel="noopener">+91 87796 66356</a></div>
+        <div class="row"><span class="eyebrow">Email</span><span class="v" id="email">nomadaawara25@gmail.com</span><button class="copy" type="button" id="copy-email">Copy email</button></div>
+        <div class="row"><span class="eyebrow">Instagram · films &amp; reels</span><a class="v" href="https://www.instagram.com/nomad.aawara/" target="_blank" rel="noopener">@nomad.aawara</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Still &amp; Stay</span><a href="#top">back to top ↑</a></div></footer>
+
+<div class="case" id="case" hidden role="dialog" aria-modal="true" aria-labelledby="case-title">
+  <div class="case-bar"><div class="wrap"><button type="button" id="case-close">← all work</button><a class="mark" href="#top" id="case-home" style="font-size:1.2rem">still <i>&amp;</i> stay</a><button type="button" id="case-next-top">next →</button></div></div>
+  <div class="case-hero"><img id="case-hero" alt=""></div>
+  <div class="wrap">
+    <div class="case-intro">
+      <div><h2 id="case-title"></h2><p class="tags" id="case-tags"></p><p class="desc" id="case-desc"></p></div>
+      <dl class="spec" id="case-spec"></dl>
+    </div>
+    <section class="case-film" id="case-film" hidden aria-label="Project film"></section>
+    <div class="case-gallery" id="case-gallery"></div>
+    <section class="case-bts" id="case-bts" hidden aria-label="Behind the scenes film"></section>
+  </div>
+  <div class="case-next"><div class="wrap"><button type="button" id="case-next"><span class="eyebrow">Next project</span><h3 id="case-next-name"></h3></button></div></div>
+</div>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <div class="lb" id="lb-bg">
+    <img id="lb-img" alt="">
+    <p class="cap" id="lb-cap"></p>
+    <button class="x" type="button" id="lb-close" aria-label="Close">×</button>
+    <button class="prev" type="button" id="lb-prev" aria-label="Previous photo">←</button>
+    <button class="next" type="button" id="lb-next" aria-label="Next photo">→</button>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.umd.js"></script>
+<script>
+(function(){
+  const M=window.Motion||null, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const W='w-';
+  const P=[
+    {id:'mountain-hotel',name:'Eden Hotel',f:'hotel',tags:'hotel · rooms · suites · views',cover:'h-h3.jpg',
+     desc:'Eden Hotel looks out to the limestone mountains, a city hotel with marble floors, timber-panelled walls and rooms that fill with golden light in the afternoon. We photographed each room type, the bathrooms and the views from the balconies for the hotel’s website and booking listings.',
+     spec:[['Scope','Rooms, suites, bathrooms, views'],['Delivered','Website, OTA listings, social'],['Status','Completed']],
+     g:[['full','h-h3.jpg','King room, afternoon light'],['half','h-h17.jpg','Balcony, misty peaks'],['half','h-h8.jpg','Mirror and the mountain'],['full','h-h14.jpg','Balcony king room'],['half','h-h5.jpg','King room, symmetry'],['half','h-h7.jpg','Twin suite with lounge'],['full','h-h16.jpg','View from the balcony'],['half','h-h2.jpg','King room and ceiling'],['half','h-h9.jpg','Jacuzzi bath'],['full','h-h12.jpg','Twin room'],['half','h-h18.jpg','Family room'],['half','h-h6.jpg','Window over town'],['half','h-h10.jpg','Twin suite'],['half','h-h11.jpg','Rooftop view'],['half','h-h4.jpg','King room, evening']]},
+    {id:'nature-resort',name:'Nature Resort',f:'hotel',tags:'hotel · rooms · grounds · drone · film',cover:W+'f-img7780.jpg',hero:W+'f-img7820.jpg',
+     film:{src:'resort-film.mp4',loop:'resort-loop.mp4',poster:'poster-resort.jpg',title:'From the pool to the paddy fields',note:'A 15-second vertical reel for Instagram and TikTok: the A-frame pool, a drone pass over the villas and the mountains, and the rice fields at sunset.'},
+     desc:'A boutique resort of timber A-frame villas and painted-mural suites, set in a tropical garden under limestone mountains. We photographed every room type, the infinity pool, the balconies and the garden walks for the resort’s website and booking listings.',
+     spec:[['Scope','Rooms, pool, grounds, details'],['Delivered','Website, OTA listings, social'],['Status','Completed']],
+     g:[['full',W+'f-img7820.jpg','Infinity pool'],['half',W+'f-img7780.jpg','Balcony, mountain view'],['half',W+'f-img7936.jpg','The view from the room'],['full',W+'f-img7914.jpg','Mural suite'],['half',W+'f-img7817.jpg','Bath amenities'],['half',W+'f-img7813.jpg','Pool through the doors'],['full',W+'f-img7747.jpg','A-frame king room'],['half',W+'f-img7929.jpg','Twin mural suite'],['half',W+'f-img7949.jpg','Blue mural suite'],['full',W+'img0166.jpg','Pool deck'],['half',W+'unknown-8.jpg','A-frame villas'],['half',W+'f-img7816.jpg','Garden balcony'],['full',W+'unknown32.jpg','Garden walk']]},
+    {id:'nature-cafe',name:'Nature Café & Restaurant',f:'restaurant',tags:'restaurant · interiors · F&B · film',cover:W+'img35.jpg',
+     bts:{src:'kitchen-film.mp4',poster:'poster-kitchen.jpg',title:'Behind the pass',note:'The kitchen team at work, filmed through the pass window during service.'},
+     film:{src:'cafe-film.mp4',loop:'cafe-loop.mp4',poster:'poster-beans.jpg',title:'The coffee bar',note:'A 20-second vertical film for Instagram and TikTok: beans, the espresso pull, the milk pour and the latte art.'},
+     desc:'A garden restaurant and bar with a lantern-lit courtyard. We covered the dining rooms, the bar and its glassware, the lounge and the team, from late afternoon through golden hour, with a highlight film for social.',
+     spec:[['Scope','Interiors, courtyard, bar, team'],['Delivered','Website, Google listing, social'],['Extras','Highlight film'],['Status','Completed']],
+     g:[['full',W+'img35.jpg','Lantern courtyard'],['half',W+'img29.jpg','Glassware at the bar'],['half',W+'img8931.jpg','Morning coffee'],['full',W+'img38.jpg','Main dining room'],['half',W+'img33.jpg','Lounge'],['half',W+'p1-room.jpg','Private dining'],['full',W+'img34.jpg','Courtyard at dusk'],['full',W+'img25.jpg','Garden-side tables']]},
+    {id:'namdong',name:'Namdong',f:'travel',tags:'food · travel · drone',cover:W+'flower-garden-photo-2.jpg',
+     desc:'Food and travel stories around Namdong: local dishes served in clay pots, the river, the forest and a flower farm seen from the drone.',
+     spec:[['Scope','Food, travel moments, aerial'],['Delivered','Social, editorial'],['Status','Completed']],
+     g:[['full',W+'flower-garden-photo-2.jpg','Flower farm from above'],['half',W+'img8431.jpg','River swing'],['half',W+'food-shot.jpg','Clay-pot curries'],['full',W+'food-platter-2.jpg','Grilled fish platter']]},
+    {id:'voltey',name:'Voltey',f:'brand',tags:'brand · product · campaign',cover:'vppool02.jpg',
+     desc:'Campaign stills for a waterproof wearable band, shot at the pool, under the shower and in the gym, delivered in website and social crops.',
+     spec:[['Scope','Product campaign'],['Delivered','Website, social'],['Status','Completed']],
+     g:[['half','vpsplashnavy01.jpg','Splash'],['half','vpshower01.jpg','Shower'],['half','vppool02.jpg','Poolside'],['half','vpgym8132.jpg','Gym']]}
+  ];
+  const FR=[['mountain-hotel','h-h17.jpg','Balcony, misty peaks'],['mountain-hotel','h-h8.jpg','Mirror and the mountain'],['nature-resort',W+'f-img7914.jpg','Mural suite'],['nature-cafe',W+'img29.jpg','Glassware at the bar'],['nature-resort',W+'f-img7936.jpg','The view from the room'],['nature-resort',W+'img0166.jpg','Pool deck'],['nature-resort',W+'f-img7817.jpg','Bath amenities'],['nature-cafe',W+'img34.jpg','Courtyard at dusk'],['nature-resort',W+'f-img7747.jpg','A-frame king room'],['namdong',W+'flower-garden-photo-2.jpg','Flower farm from above'],['nature-resort',W+'unknown-8.jpg','A-frame villas']];
+  const byId=id=>P.find(p=>p.id===id);
+
+  /* header turns white after the hero */
+  const hdr=document.getElementById('hdr'),hero=document.querySelector('.hero');
+  const solid=()=>hdr.classList.toggle('solid',scrollY>hero.offsetHeight-90);
+  addEventListener('scroll',solid,{passive:true});solid();
+
+  /* frames row */
+  const track=document.getElementById('track');
+  FR.forEach(([pid,src,cap])=>{const p=byId(pid);const f=document.createElement('figure');f.className='frame';
+    f.innerHTML='<div class="ph"><img loading="lazy" src="'+src+'" alt="'+cap+', '+p.name+'" draggable="false"></div><figcaption><div><h3>'+cap+'</h3><p class="eyebrow">'+p.name+'</p></div><button type="button" class="more">more</button></figcaption>';
+    f.querySelector('.more').onclick=()=>openCase(pid);track.appendChild(f);});
+  const step=()=>track.querySelector('.frame').offsetWidth+18;
+  document.getElementById('tr-prev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
+  document.getElementById('tr-next').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
+  let dx=0,sx=0,sl=0,down=false;
+  track.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.target.closest('button'))return;down=true;dx=0;sx=e.clientX;sl=track.scrollLeft;track.classList.add('drag');});
+  addEventListener('pointermove',e=>{if(!down)return;dx=e.clientX-sx;track.scrollLeft=sl-dx;});
+  addEventListener('pointerup',()=>{if(!down)return;down=false;track.classList.remove('drag');
+    const s=step();track.scrollTo({left:Math.round(track.scrollLeft/s)*s,behavior:'smooth'});});
+  track.addEventListener('click',e=>{if(Math.abs(dx)>6){e.preventDefault();e.stopPropagation();}dx=0;},true);
+  track.addEventListener('keydown',e=>{if(e.key==='ArrowRight')track.scrollBy({left:step(),behavior:'smooth'});if(e.key==='ArrowLeft')track.scrollBy({left:-step(),behavior:'smooth'});});
+
+  /* project index + filters */
+  const idx=document.getElementById('index');
+  P.forEach(p=>{const b=document.createElement('button');b.type='button';b.className='card';b.dataset.f=p.f;
+    b.innerHTML='<div class="ph">'+(p.film&&!still?'<video class="card-film" src="'+p.film.loop+'" poster="'+p.film.poster+'" muted loop playsinline autoplay preload="metadata" aria-label="'+p.name+' film preview"></video><span class="film-badge">▶ film</span>':'<img loading="lazy" src="'+p.cover+'" alt="'+p.name+'">')+'</div><div class="meta"><div><h3>'+p.name+'</h3><p class="tags">'+p.tags+'</p></div><span class="more">more</span></div>';
+    b.onclick=()=>openCase(p.id);idx.appendChild(b);});
+  document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+    document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+    idx.querySelectorAll('.card').forEach(c=>{c.hidden=!(b.dataset.f==='all'||c.dataset.f===b.dataset.f);
+      if(!c.hidden&&M&&!still)M.animate(c,{transform:['translateY(10px)','translateY(0)']},{duration:.6,easing:[.22,.7,.2,1]});});});
+
+  /* lightbox */
+  const dlg=document.getElementById('lb'),lbi=document.getElementById('lb-img'),lbc=document.getElementById('lb-cap');
+  let L=[],li=0;
+  function lbShow(n){li=(n+L.length)%L.length;lbi.src=L[li][0];lbi.alt=L[li][1];lbc.textContent=L[li][1];
+    if(M&&!still)M.animate(lbi,{opacity:[0,1],transform:['scale(.985)','scale(1)']},{duration:.5,easing:[.22,.7,.2,1]});}
+  document.getElementById('lb-close').onclick=()=>dlg.close();
+  document.getElementById('lb-prev').onclick=()=>lbShow(li-1);
+  document.getElementById('lb-next').onclick=()=>lbShow(li+1);
+  document.getElementById('lb-bg').addEventListener('click',e=>{if(e.target.id==='lb-bg')dlg.close();});
+  dlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')lbShow(li-1);if(e.key==='ArrowRight')lbShow(li+1);});
+
+  /* case study pages */
+  const cs=document.getElementById('case');let cur=null,lastFocus=null;
+  function openCase(id){
+    const p=byId(id);if(!p)return;cur=p;if(cs.hidden)lastFocus=document.activeElement;
+    document.getElementById('case-hero').src=p.hero||p.cover;document.getElementById('case-hero').alt=p.name;
+    document.getElementById('case-title').textContent=p.name;
+    document.getElementById('case-tags').textContent=p.tags;
+    document.getElementById('case-desc').textContent=p.desc;
+    document.getElementById('case-spec').innerHTML=p.spec.map(([k,v])=>'<div><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('');
+    const g=document.getElementById('case-gallery');g.innerHTML='';
+    L=p.g.map(([,s,c])=>[s,c+' · '+p.name]);
+    p.g.forEach(([cls,s,c],i)=>{const b=document.createElement('button');b.type='button';b.className=cls;b.setAttribute('aria-label','Open '+c);
+      b.innerHTML='<img loading="lazy" src="'+s+'" alt="'+c+'">';b.onclick=()=>{lbShow(i);dlg.showModal();};g.appendChild(b);});
+    const fb=document.getElementById('case-film');
+    if(p.film){fb.hidden=false;fb.innerHTML='<div class="film-copy"><p class="eyebrow">Film</p><h3>'+p.film.title+'</h3><p>'+p.film.note+'</p></div><div class="film-frame"><video src="'+p.film.src+'" poster="'+p.film.poster+'" controls playsinline preload="metadata"></video></div>';}
+    else{fb.hidden=true;fb.innerHTML='';}
+    const bb=document.getElementById('case-bts');
+    if(p.bts){bb.hidden=false;bb.innerHTML='<div class="bts-head"><p class="eyebrow">Behind the scenes</p><h3>'+p.bts.title+'</h3><p>'+p.bts.note+'</p></div><div class="bts-frame"><video src="'+p.bts.src+'" poster="'+p.bts.poster+'" controls playsinline preload="metadata"></video></div>';}
+    else{bb.hidden=true;bb.innerHTML='';}
+    const nx=P[(P.indexOf(p)+1)%P.length];document.getElementById('case-next-name').textContent=nx.name;
+    cs.hidden=false;cs.scrollTop=0;document.body.style.overflow='hidden';
+    try{history.replaceState(null,'','#'+id);}catch(e){}
+    if(M&&!still)M.animate(cs,{opacity:[0,1],transform:['translateY(24px)','translateY(0)']},{duration:.6,easing:[.22,.7,.2,1]});
+    document.getElementById('case-close').focus({preventScroll:true});
+  }
+  function closeCase(){document.querySelectorAll('#case video').forEach(v=>v.pause());cs.hidden=true;document.body.style.overflow='';cur=null;try{history.replaceState(null,'','#work');}catch(e){}if(lastFocus)lastFocus.focus({preventScroll:true});}
+  const goNext=()=>openCase(P[(P.indexOf(cur)+1)%P.length].id);
+  document.getElementById('case-close').onclick=closeCase;
+  document.getElementById('case-home').onclick=e=>{e.preventDefault();closeCase();scrollTo({top:0});};
+  document.getElementById('case-next').onclick=goNext;
+  document.getElementById('case-next-top').onclick=goNext;
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!cs.hidden&&!dlg.open)closeCase();});
+  const h0=location.hash.slice(1);if(byId(h0))openCase(h0);
+
+  /* zoomable detail images open in the lightbox */
+  document.querySelectorAll('.zoomable').forEach((z,i,all)=>z.addEventListener('click',()=>{
+    L=[...all].map(x=>[x.dataset.src,x.dataset.cap]);lbShow(i);dlg.showModal();}));
+
+  /* hour by hour: the pinned photo follows the step in view */
+  const steps=[...document.querySelectorAll('#hours-steps li')],shots=[...document.querySelectorAll('.hours-stage img')];
+  const clockT=document.getElementById('clock-time'),clockB=document.getElementById('clock-bar');
+  function setHour(i){steps.forEach((s,k)=>s.classList.toggle('on',k===i));shots.forEach((s,k)=>s.classList.toggle('on',k===i));
+    clockT.textContent=steps[i].querySelector('.t').textContent;clockB.style.setProperty('--p',(i/(steps.length-1)*100)+'%');}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setHour(steps.indexOf(e.target));});},{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));setHour(0);
+
+  /* calm motion */
+  if(M&&!still){
+    M.animate('#hero-img',{transform:['scale(1.1)','scale(1)']},{duration:3.6,easing:[.22,.7,.2,1]});
+    M.inView('.card .ph img, .frame .ph img',({target})=>{M.animate(target,{transform:['scale(1.08)','scale(1)']},{duration:1.8,easing:[.22,.7,.2,1]}).finished.then(()=>target.style.transform='');},{amount:.2});
+    M.inView('.statement h1, .row-head h2, .work-head h2, .details-copy h2, .hours-head h2, .svc-head h2, .contact h2',({target})=>{M.animate(target,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,easing:[.22,.7,.2,1]});});
+  }
+
+  /* copy email */
+  const cb=document.getElementById('copy-email');
+  cb.addEventListener('click',()=>{const t=document.getElementById('email').textContent;
+    const ok=()=>{cb.textContent='Copied';setTimeout(()=>cb.textContent='Copy email',1600);};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('email'));const s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';};
+    try{navigator.clipboard.writeText(t).then(ok,sel);}catch(e){sel();}});
+})();
+</script>
+</body>
+</html>
