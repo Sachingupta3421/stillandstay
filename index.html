@@ -143,12 +143,40 @@ nav .enq{border:1px solid currentColor;padding:6px 18px;opacity:1}
 .hours-steps h3{font-size:clamp(1.8rem,3vw,2.6rem);margin:6px 0 12px}
 .hours-steps p{color:var(--grey);max-width:40ch}
 
+/* statement voice */
+.statement-copy{display:grid;gap:14px}
+.statement-copy p{color:var(--grey);max-width:54ch;font-size:1.06rem}
+.statement-copy .hello{font-family:var(--display);font-size:1.6rem;color:var(--ink)}
+
+/* approach */
+.approach{padding-block:clamp(80px,10vw,140px)}
+.approach-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+.approach-head h2{font-size:clamp(2rem,4.2vw,3.6rem)}
+.approach-head h2 em{font-style:italic;color:var(--brass)}
+.approach-head p{color:var(--grey);max-width:50ch}
+.approach-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.approach-steps li{border-top:1px solid var(--ink);padding-top:18px;min-width:0}
+.approach-steps .n{font-family:var(--display);font-style:italic;color:var(--brass);font-size:1.1rem}
+.approach-steps h3{font-size:1.6rem;margin:6px 0 10px}
+.approach-steps p{color:var(--grey);font-size:.97rem}
+.offer{margin-top:clamp(40px,6vw,72px);background:var(--linen);padding:clamp(24px,4vw,44px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.offer h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:8px 0 8px}
+.offer p:not(.eyebrow){color:var(--grey);max-width:52ch}
+.offer .cta{margin-top:0}
+
 /* services */
+.svc-groups{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.svc-group{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-family:var(--body);font-weight:500;color:var(--ink);margin-bottom:6px}
+.svc-groups .svc{grid-template-columns:minmax(0,1fr)}
 .services{background:var(--linen);padding-block:clamp(80px,10vw,140px)}
 .svc-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;margin-bottom:40px;align-items:end}
 .svc-head h2{font-size:clamp(2rem,4vw,3.4rem)}
 .svc-head p{color:var(--grey);max-width:50ch}
 .svc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(20px,3vw,48px)}
+.svc li{display:grid;grid-template-columns:2.6rem minmax(0,1fr);column-gap:10px}
+.svc li .n{grid-row:span 2;padding-top:4px}
+.svc li h3{margin-top:0}
+.svc li p{grid-column:2}
 .svc li{border-top:1px solid #d9d5cc;padding-block:24px 30px}
 .svc .n{font-family:var(--display);font-style:italic;color:var(--brass);font-size:1.1rem}
 .svc h3{font-size:1.45rem;margin:6px 0 8px}
@@ -229,7 +257,8 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
 .lb .cap{position:absolute;bottom:max(26px,env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
 
 @media (max-width:900px){
-  .statement-row,.details-grid,.hours-grid,.svc-head,.contact-grid,.case-intro{grid-template-columns:minmax(0,1fr)}
+  .statement-row,.details-grid,.hours-grid,.svc-head,.contact-grid,.case-intro,.approach-head,.svc-groups{grid-template-columns:minmax(0,1fr)}
+  .approach-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hours-stage{aspect-ratio:auto;height:46vh;max-height:none;z-index:2;top:calc(env(safe-area-inset-top,0px) + 64px)}
   .hours-steps li{min-height:55vh}
@@ -237,7 +266,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
 @media (max-width:600px){
   nav a.hide-sm{display:none}
   .index,.case-gallery{grid-template-columns:minmax(0,1fr)}
-  .svc,.facts{grid-template-columns:minmax(0,1fr)}
+  .svc,.facts,.approach-steps{grid-template-columns:minmax(0,1fr)}
   .details-row{gap:8px}
   .hours-stage{aspect-ratio:auto;height:42vh;max-height:none;z-index:2;top:calc(env(safe-area-inset-top,0px) + 64px)}
   .hours-steps li{min-height:52vh}
@@ -254,7 +283,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
     <a class="mark" href="#top" aria-label="Still and Stay, home">still <i>&amp;</i> stay</a>
     <nav aria-label="Main">
       <a href="#work">work</a>
-      <a href="#hours" class="hide-sm">hour by hour</a>
+      <a href="#approach" class="hide-sm">how I work</a>
       <a href="#services" class="hide-sm">services</a>
       <a href="#contact" class="enq">enquire</a>
     </nav>
@@ -268,14 +297,18 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   </section>
 
   <section class="statement wrap" aria-label="About">
-    <p class="eyebrow">Hospitality photography &amp; film</p>
-    <h1 style="margin-top:22px">Calm, honest imagery for places worth <em>staying.</em></h1>
+    <p class="eyebrow">Photography · Film · Brand growth for hospitality</p>
+    <h1 style="margin-top:22px">I don’t just photograph your place. I help it get <em>booked.</em></h1>
     <div class="statement-row">
-      <p>Still &amp; Stay photographs and films hotels, resorts and restaurants the way guests remember them: morning light in the room, the table before service, the garden on the walk back. Every frame is made for your website, your booking listings and your social channels.</p>
+      <div class="statement-copy">
+        <p class="hello">Hi, I’m Sachin.</p>
+        <p>Beautiful photos are only half the job. Before I pick up a camera, I look at your property the way a guest does: your Instagram, your Google listing, your Booking.com and Agoda pages, your website. I find the places where people lose interest, and why.</p>
+        <p>Then I create the photos and films that fix it, and stay with you to make sure they’re used well: the right first image on your listing, a steady rhythm on social, a brand that feels like the place itself.</p>
+      </div>
       <div class="facts">
-        <div><span class="eyebrow">Stills</span><strong>Rooms, F&amp;B, amenities</strong></div>
-        <div><span class="eyebrow">Motion</span><strong>Reels, films, drone</strong></div>
-        <div><span class="eyebrow">Details</span><strong>Styling, glassware, linen</strong></div>
+        <div><span class="eyebrow">Create</span><strong>Photos, reels, films, drone</strong></div>
+        <div><span class="eyebrow">Grow</span><strong>Social, listings, brand</strong></div>
+        <div><span class="eyebrow">Partner</span><strong>Honest advice, ongoing</strong></div>
       </div>
     </div>
   </section>
@@ -304,6 +337,29 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
     </div>
   </section>
 
+  <section class="approach" id="approach" aria-labelledby="h-approach">
+    <div class="wrap">
+      <div class="approach-head">
+        <div><p class="eyebrow">How I work with you</p><h2 id="h-approach" style="margin-top:10px">A partner, not just a <em>photographer.</em></h2></div>
+        <p>Every property has a story guests would love, if they could see it. My job is to find it, show it and make sure the right people see it.</p>
+      </div>
+      <ol class="approach-steps">
+        <li><span class="n">01</span><h3>Listen</h3><p>We talk about your guests, what makes your place special and what you want to change: more direct bookings, a fuller restaurant, a stronger name.</p></li>
+        <li><span class="n">02</span><h3>Look</h3><p>I review your Instagram, Google profile, booking listings and website, and show you plainly what’s working and what’s costing you guests.</p></li>
+        <li><span class="n">03</span><h3>Create</h3><p>I plan and shoot photos, reels and films around those gaps, at the right hour of the day, with every room and table styled.</p></li>
+        <li><span class="n">04</span><h3>Grow</h3><p>I help you use them: refreshed listings, a posting plan with captions, ad-ready cuts and monthly content, so your brand keeps moving after the shoot.</p></li>
+      </ol>
+      <div class="offer">
+        <div>
+          <p class="eyebrow">A free first look</p>
+          <h3>Send me your Instagram or booking link.</h3>
+          <p>I’ll reply with three honest things I’d change to help you get more guests. No cost, no obligation.</p>
+        </div>
+        <a class="cta" href="https://wa.me/918779666356" target="_blank" rel="noopener">Ask for your free look <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="details" id="details" aria-labelledby="h-details">
     <div class="wrap details-grid">
       <figure class="details-hero">
@@ -313,7 +369,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
       <div class="details-copy">
         <p class="eyebrow">The details</p>
         <h2 id="h-details" style="margin-top:12px">Guests remember the <em>small things.</em></h2>
-        <p class="lede">The light caught in a row of glasses. Bath amenities lined up on a lit shelf. The first coffee by the window. We slow down for the details that tell guests how a place will feel, and give them the same care as the wide shots.</p>
+        <p class="lede">The light caught in a row of glasses. Bath amenities lined up on a lit shelf. The first coffee by the window. I slow down for the details that tell guests how a place will feel, and give them the same care as the wide shots.</p>
         <div class="details-row">
           <button type="button" class="zoomable" data-src="w-unknown24.jpg" data-cap="Towel styling · Nature Resort"><img loading="lazy" src="w-unknown24.jpg" alt="Rolled white towels on a navy bed runner"></button>
           <button type="button" class="zoomable" data-src="w-f-img7817.jpg" data-cap="Bath amenities · Nature Resort"><img loading="lazy" src="w-f-img7817.jpg" alt="Shampoo and body wash bottles on a lit shelf with rolled towels"></button>
@@ -339,7 +395,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
           <li class="on"><span class="t">07:00</span><h3>First light</h3><p>Mist lifting off the mountains, the balcony chairs still empty. Soft, low sun for terraces, views and breakfast.</p></li>
           <li><span class="t">12:00</span><h3>High sun</h3><p>The pool at its brightest blue. Midday is for water, terraces and anything that should look fresh and clean.</p></li>
           <li><span class="t">15:30</span><h3>Afternoon</h3><p>Even light through the tall windows and across the painted walls. The hour for rooms and suites, styled bed by bed.</p></li>
-          <li><span class="t">17:45</span><h3>Golden hour</h3><p>The courtyard turns warm and the lanterns start to glow. Twenty minutes we plan the whole day around.</p></li>
+          <li><span class="t">17:45</span><h3>Golden hour</h3><p>The courtyard turns warm and the lanterns start to glow. Twenty minutes I plan the whole day around.</p></li>
           <li><span class="t">19:00</span><h3>Blue hour</h3><p>Lights on, sky still holding colour. Exteriors, dining and the bar as guests arrive.</p></li>
         </ol>
       </div>
@@ -349,26 +405,38 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   <section class="services" id="services" aria-labelledby="h-svc">
     <div class="wrap">
       <div class="svc-head">
-        <div><p class="eyebrow">Services</p><h2 id="h-svc" style="margin-top:10px">What a shoot covers</h2></div>
-        <p>Every shoot is planned around the property and quoted to it. Choose what you need; rates on request.</p>
+        <div><p class="eyebrow">Services</p><h2 id="h-svc" style="margin-top:10px">What I can do for you</h2></div>
+        <p>Take one piece or the whole package. Every project is shaped around your property and quoted to it; rates on request.</p>
       </div>
-      <ul class="svc">
-        <li><span class="n">i.</span><h3>Rooms &amp; suites</h3><p>Every room category, wide and in detail, for your website, Booking.com and Agoda.</p></li>
-        <li><span class="n">ii.</span><h3>Food &amp; beverage</h3><p>Menu dishes, the bar, glassware and the dining room before and during service.</p></li>
-        <li><span class="n">iii.</span><h3>Grounds &amp; amenities</h3><p>Pools, gardens and shared spaces, each shot at its best hour.</p></li>
-        <li><span class="n">iv.</span><h3>Details &amp; styling</h3><p>Glassware, linen, turn-down and table settings, styled and lit one by one.</p></li>
-        <li><span class="n">v.</span><h3>Drone</h3><p>The property and the landscape around it from above.</p></li>
-        <li><span class="n">vi.</span><h3>Reels &amp; films</h3><p>Vertical edits for Instagram and TikTok, and a longer highlight film.</p></li>
-      </ul>
+      <div class="svc-groups">
+        <div>
+          <h3 class="svc-group">Create</h3>
+          <ul class="svc">
+            <li><span class="n">i.</span><h3>Rooms &amp; suites</h3><p>Every room category, wide and in detail, for your website, Booking.com and Agoda.</p></li>
+            <li><span class="n">ii.</span><h3>Food &amp; beverage</h3><p>Menu dishes, the bar and the dining room, before and during service.</p></li>
+            <li><span class="n">iii.</span><h3>Drone &amp; grounds</h3><p>Pools, gardens and the landscape around you, from the ground and the air.</p></li>
+            <li><span class="n">iv.</span><h3>Reels &amp; films</h3><p>Vertical edits for Instagram and TikTok, and a longer film for your website.</p></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="svc-group">Grow</h3>
+          <ul class="svc">
+            <li><span class="n">v.</span><h3>Brand &amp; listing audit</h3><p>A clear review of how you look online today, with a short list of what to fix first.</p></li>
+            <li><span class="n">vi.</span><h3>Booking listing refresh</h3><p>New photo order, cover images and descriptions for Booking.com, Agoda and Google.</p></li>
+            <li><span class="n">vii.</span><h3>Social media</h3><p>A monthly content plan, captions and posting, so your feed stays alive between shoots.</p></li>
+            <li><span class="n">viii.</span><h3>Ads &amp; campaigns</h3><p>Ad-ready photos and short cuts for promotions, seasons and launches.</p></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="contact wrap" id="contact" aria-labelledby="h-contact">
-    <p class="eyebrow">Bookings &amp; enquiries</p>
-    <h2 id="h-contact" style="margin-top:18px">Let’s plan your <em>shoot.</em></h2>
+    <p class="eyebrow">Let’s talk</p>
+    <h2 id="h-contact" style="margin-top:18px">Tell me about your <em>place.</em></h2>
     <div class="contact-grid">
       <div>
-        <p class="lede">Tell us about your property, the dates you have in mind and where the images will be used.</p>
+        <p class="lede">What makes it special, who your guests are and what you’d like to change. I reply personally, usually within a day, with honest thoughts on how I can help.</p>
         <a class="cta" href="https://wa.me/918779666356" target="_blank" rel="noopener">Message on WhatsApp <span aria-hidden="true">→</span></a>
       </div>
       <div class="rows">
@@ -461,10 +529,14 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   track.addEventListener('click',e=>{if(Math.abs(dx)>6){e.preventDefault();e.stopPropagation();}dx=0;},true);
   track.addEventListener('keydown',e=>{if(e.key==='ArrowRight')track.scrollBy({left:step(),behavior:'smooth'});if(e.key==='ArrowLeft')track.scrollBy({left:-step(),behavior:'smooth'});});
 
+  /* card film previews: download and play only while on screen */
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{});}else{v.pause();}}),{threshold:.35});
+  setTimeout(()=>document.querySelectorAll('.card-film').forEach(v=>vio.observe(v)),0);
+
   /* project index + filters */
   const idx=document.getElementById('index');
   P.forEach(p=>{const b=document.createElement('button');b.type='button';b.className='card';b.dataset.f=p.f;
-    b.innerHTML='<div class="ph">'+(p.film&&!still?'<video class="card-film" src="'+p.film.loop+'" poster="'+p.film.poster+'" muted loop playsinline autoplay preload="metadata" aria-label="'+p.name+' film preview"></video><span class="film-badge">▶ film</span>':'<img loading="lazy" src="'+p.cover+'" alt="'+p.name+'">')+'</div><div class="meta"><div><h3>'+p.name+'</h3><p class="tags">'+p.tags+'</p></div><span class="more">more</span></div>';
+    b.innerHTML='<div class="ph">'+(p.film&&!still?'<video class="card-film" src="'+p.film.loop+'" poster="'+p.film.poster+'" muted loop playsinline preload="none" aria-label="'+p.name+' film preview"></video><span class="film-badge">▶ film</span>':'<img loading="lazy" src="'+p.cover+'" alt="'+p.name+'">')+'</div><div class="meta"><div><h3>'+p.name+'</h3><p class="tags">'+p.tags+'</p></div><span class="more">more</span></div>';
     b.onclick=()=>openCase(p.id);idx.appendChild(b);});
   document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
     document.querySelectorAll('#filters button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
@@ -496,10 +568,10 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
     p.g.forEach(([cls,s,c],i)=>{const b=document.createElement('button');b.type='button';b.className=cls;b.setAttribute('aria-label','Open '+c);
       b.innerHTML='<img loading="lazy" src="'+s+'" alt="'+c+'">';b.onclick=()=>{lbShow(i);dlg.showModal();};g.appendChild(b);});
     const fb=document.getElementById('case-film');
-    if(p.film){fb.hidden=false;fb.innerHTML='<div class="film-copy"><p class="eyebrow">Film</p><h3>'+p.film.title+'</h3><p>'+p.film.note+'</p></div><div class="film-frame"><video src="'+p.film.src+'" poster="'+p.film.poster+'" controls playsinline preload="metadata"></video></div>';}
+    if(p.film){fb.hidden=false;fb.innerHTML='<div class="film-copy"><p class="eyebrow">Film</p><h3>'+p.film.title+'</h3><p>'+p.film.note+'</p></div><div class="film-frame"><video src="'+p.film.src+'" poster="'+p.film.poster+'" controls playsinline preload="none"></video></div>';}
     else{fb.hidden=true;fb.innerHTML='';}
     const bb=document.getElementById('case-bts');
-    if(p.bts){bb.hidden=false;bb.innerHTML='<div class="bts-head"><p class="eyebrow">Behind the scenes</p><h3>'+p.bts.title+'</h3><p>'+p.bts.note+'</p></div><div class="bts-frame"><video src="'+p.bts.src+'" poster="'+p.bts.poster+'" controls playsinline preload="metadata"></video></div>';}
+    if(p.bts){bb.hidden=false;bb.innerHTML='<div class="bts-head"><p class="eyebrow">Behind the scenes</p><h3>'+p.bts.title+'</h3><p>'+p.bts.note+'</p></div><div class="bts-frame"><video src="'+p.bts.src+'" poster="'+p.bts.poster+'" controls playsinline preload="none"></video></div>';}
     else{bb.hidden=true;bb.innerHTML='';}
     const nx=P[(P.indexOf(p)+1)%P.length];document.getElementById('case-next-name').textContent=nx.name;
     cs.hidden=false;cs.scrollTop=0;document.body.style.overflow='hidden';
@@ -532,7 +604,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   if(M&&!still){
     M.animate('#hero-img',{transform:['scale(1.1)','scale(1)']},{duration:3.6,easing:[.22,.7,.2,1]});
     M.inView('.card .ph img, .frame .ph img',({target})=>{M.animate(target,{transform:['scale(1.08)','scale(1)']},{duration:1.8,easing:[.22,.7,.2,1]}).finished.then(()=>target.style.transform='');},{amount:.2});
-    M.inView('.statement h1, .row-head h2, .work-head h2, .details-copy h2, .hours-head h2, .svc-head h2, .contact h2',({target})=>{M.animate(target,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,easing:[.22,.7,.2,1]});});
+    M.inView('.statement h1, .row-head h2, .work-head h2, .approach-head h2, .details-copy h2, .hours-head h2, .svc-head h2, .contact h2',({target})=>{M.animate(target,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,easing:[.22,.7,.2,1]});});
   }
 
   /* copy email */
