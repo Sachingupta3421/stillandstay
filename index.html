@@ -148,6 +148,17 @@ nav .enq{border:1px solid currentColor;padding:6px 18px;opacity:1}
 .statement-copy p{color:var(--grey);max-width:54ch;font-size:1.06rem}
 .statement-copy .hello{font-family:var(--display);font-size:1.6rem;color:var(--ink)}
 
+/* story */
+.story{padding-block:clamp(40px,6vw,90px) clamp(80px,10vw,140px)}
+.story-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,7vw,110px);align-items:center}
+.story-img{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--linen)}
+.story-img img{width:100%;height:100%;object-fit:cover;display:block}
+.story-copy h2{font-size:clamp(2.2rem,4.6vw,4rem)}
+.story-copy h2 em{font-style:italic;color:var(--brass)}
+.story-copy p{color:var(--grey);max-width:56ch;font-size:1.06rem;margin-top:18px}
+.story-copy blockquote{margin:30px 0 0;padding-left:22px;border-left:2px solid var(--brass);font-family:var(--display);font-style:italic;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.35;color:var(--ink);max-width:30ch}
+.story-copy .sign{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-top:16px}
+
 /* approach */
 .approach{padding-block:clamp(80px,10vw,140px)}
 .approach-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:end;margin-bottom:clamp(36px,5vw,60px)}
@@ -257,7 +268,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
 .lb .cap{position:absolute;bottom:max(26px,env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
 
 @media (max-width:900px){
-  .statement-row,.details-grid,.hours-grid,.svc-head,.contact-grid,.case-intro,.approach-head,.svc-groups{grid-template-columns:minmax(0,1fr)}
+  .statement-row,.details-grid,.hours-grid,.svc-head,.contact-grid,.case-intro,.approach-head,.svc-groups,.story-grid{grid-template-columns:minmax(0,1fr)}
   .approach-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hours-stage{aspect-ratio:auto;height:46vh;max-height:none;z-index:2;top:calc(env(safe-area-inset-top,0px) + 64px)}
@@ -283,6 +294,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
     <a class="mark" href="#top" aria-label="Still and Stay, home">still <i>&amp;</i> stay</a>
     <nav aria-label="Main">
       <a href="#work">work</a>
+      <a href="#story" class="hide-sm">story</a>
       <a href="#approach" class="hide-sm">how I work</a>
       <a href="#services" class="hide-sm">services</a>
       <a href="#contact" class="enq">enquire</a>
@@ -309,6 +321,23 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
         <div><span class="eyebrow">Create</span><strong>Photos, reels, films, drone</strong></div>
         <div><span class="eyebrow">Grow</span><strong>Social, listings, brand</strong></div>
         <div><span class="eyebrow">Partner</span><strong>Honest advice, ongoing</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story" aria-labelledby="h-story">
+    <div class="wrap story-grid">
+      <figure class="story-img">
+        <img loading="lazy" src="w-f-img7936.jpg" alt="Looking past a curtain and the end of a bed to green limestone mountains through the window">
+      </figure>
+      <div class="story-copy">
+        <p class="eyebrow">My story</p>
+        <h2 id="h-story" style="margin-top:12px">It started with one <em>stay.</em></h2>
+        <p>I still remember walking into a five-star hotel for the first time. The calm of the lobby, the way everything seemed to have been thought about, a room that felt like it had been waiting for me. I couldn’t stop taking pictures. It was a little crazy, in the best way.</p>
+        <p>Since then I’ve stayed at places like the Novotel in Kerala and the JW Marriott, and that feeling never got old. What stayed with me wasn’t the size of the room. It was the small moments that made me want to come back.</p>
+        <p>I’ve always loved photography and filmmaking. So I asked myself: why not use it for the hotels that make people feel this way? The ones that don’t just offer a stay, but give guests a reason to return.</p>
+        <blockquote>Great hotels don’t just sell a room. They give you a reason to come back. My job is to make sure the world can see it.</blockquote>
+        <p class="sign">— Sachin, Still &amp; Stay</p>
       </div>
     </div>
   </section>
@@ -604,7 +633,7 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   if(M&&!still){
     M.animate('#hero-img',{transform:['scale(1.1)','scale(1)']},{duration:3.6,easing:[.22,.7,.2,1]});
     M.inView('.card .ph img, .frame .ph img',({target})=>{M.animate(target,{transform:['scale(1.08)','scale(1)']},{duration:1.8,easing:[.22,.7,.2,1]}).finished.then(()=>target.style.transform='');},{amount:.2});
-    M.inView('.statement h1, .row-head h2, .work-head h2, .approach-head h2, .details-copy h2, .hours-head h2, .svc-head h2, .contact h2',({target})=>{M.animate(target,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,easing:[.22,.7,.2,1]});});
+    M.inView('.statement h1, .story-copy h2, .row-head h2, .work-head h2, .approach-head h2, .details-copy h2, .hours-head h2, .svc-head h2, .contact h2',({target})=>{M.animate(target,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,easing:[.22,.7,.2,1]});});
   }
 
   /* copy email */
