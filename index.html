@@ -30,7 +30,7 @@
   --ink:#141820;        /* near-black with a navy cast */
   --navy:#1E2B47;       /* the runner navy from the rooms */
   --brass:#A2865A;      /* hospitality brass, used sparingly */
-  --grey:#6E7280;
+  --grey:#4F5461;       /* darker than before so body copy reads clearly */
   --hair:#E4E1DA;
   --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
@@ -57,8 +57,13 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:2
 .mark{font-family:var(--display);font-size:1.5rem;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
 .mark i{font-style:italic;color:var(--brass)}
 nav{display:flex;gap:clamp(16px,3vw,40px);align-items:center}
-nav a{text-decoration:none;font-size:.95rem;letter-spacing:.02em;opacity:.85;transition:opacity .3s}
+nav a{position:relative;text-decoration:none;font-size:1.08rem;letter-spacing:.02em;opacity:.85;padding:4px 0;transition:opacity .3s}
+/* bottom line: grows in on hover, stays under the section you are in */
+nav a:not(.enq)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
 nav a:hover{opacity:1}
+nav a:not(.enq):hover::after{transform:scaleX(.5)}
+nav a.on{opacity:1}
+nav a.on::after,nav a.on:hover::after{transform:scaleX(1)}
 nav .enq{border:1px solid currentColor;padding:6px 18px;opacity:1}
 
 /* hero: image only */
@@ -242,13 +247,14 @@ footer a{text-decoration:none}
 .card .ph{position:relative}
 .card-film{width:100%;height:100%;object-fit:cover;display:block}
 .film-badge{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);color:var(--ink);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px}
-.case-film{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;padding-bottom:clamp(48px,7vw,90px)}
+/* vertical films: centred on the page, with the top ~15% cropped off (9:16 shown as 9:13.6, anchored to the bottom) */
+.case-film{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;gap:clamp(24px,4vw,44px);padding-bottom:clamp(48px,7vw,90px)}
 .case-film[hidden]{display:none}
+.film-copy{max-width:52ch}
 .film-copy h3{font-size:clamp(1.8rem,3.4vw,2.8rem);margin:10px 0 14px}
-.film-copy p:not(.eyebrow){color:var(--grey);max-width:40ch}
-.film-frame{justify-self:center;width:min(100%,420px);aspect-ratio:9/16;background:#111;box-shadow:0 40px 80px -40px rgba(20,24,32,.45)}
-.film-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#111}
-@media (max-width:900px){.case-film{grid-template-columns:minmax(0,1fr)}}
+.film-copy p:not(.eyebrow){color:var(--grey);max-width:52ch;margin-inline:auto}
+.film-frame{width:min(100%,440px);aspect-ratio:9/13.6;overflow:hidden;background:#111;box-shadow:0 40px 80px -40px rgba(20,24,32,.45)}
+.film-frame video{width:100%;height:100%;object-fit:cover;object-position:50% 100%;display:block;background:#111}
 .case-bts{padding-bottom:clamp(60px,8vw,110px)}
 .case-bts[hidden]{display:none}
 .bts-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:8px 24px;align-items:end;margin-bottom:22px}
@@ -289,6 +295,29 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   .lb .prev,.lb .next{top:auto;bottom:max(14px,env(safe-area-inset-bottom,0px))}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* readability: larger small text everywhere (overrides the sizes above) */
+body{font-size:1.14rem}
+.eyebrow{font-size:.82rem}
+.frame .eyebrow{font-size:.76rem}
+.more{font-size:1rem}
+.hero-cap p{font-size:.92rem}
+.statement-row p,.statement-copy p,.details-copy .lede,.story-copy p,.case-intro p.desc{font-size:1.2rem}
+.facts strong{font-size:1.08rem}
+.filters button{font-size:1rem}
+.card .tags{font-size:.96rem}
+.details-hero figcaption,.lb .cap{font-size:.82rem}
+.story-copy .sign{font-size:.95rem}
+.approach-head p,.svc-head p,.offer p:not(.eyebrow),.contact .lede,.hours-steps p,.film-copy p:not(.eyebrow),.bts-head p:not(.eyebrow){font-size:1.14rem}
+.approach-steps p,.svc p{font-size:1.08rem}
+.svc-group{font-size:.86rem}
+.cta{font-size:1.04rem}
+.copy{font-size:.88rem}
+footer{font-size:.96rem}
+.case-bar button{font-size:1.06rem}
+.case-intro .tags{font-size:1.02rem}
+.spec dt{font-size:.8rem}
+.film-badge{font-size:.78rem}
 </style>
 </head>
 <body>
@@ -544,6 +573,14 @@ dialog::backdrop{background:rgba(255,255,255,.97)}
   const hdr=document.getElementById('hdr'),hero=document.querySelector('.hero');
   const solid=()=>hdr.classList.toggle('solid',scrollY>hero.offsetHeight-90);
   addEventListener('scroll',solid,{passive:true});solid();
+
+  /* nav: the link for the section in view (or just clicked) gets a border */
+  const navLinks=[...document.querySelectorAll('nav a:not(.enq)')];
+  const setNav=id=>navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id));
+  navLinks.forEach(a=>a.addEventListener('click',()=>setNav(a.getAttribute('href').slice(1))));
+  const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setNav(e.target.id);}),{rootMargin:'-45% 0px -50% 0px'});
+  ['story','work','approach','details','hours','services','contact'].forEach(id=>{const s=document.getElementById(id);if(s)navIO.observe(s);});
+  addEventListener('scroll',()=>{if(scrollY<hero.offsetHeight*.6)setNav('');},{passive:true});
 
   /* frames row */
   const track=document.getElementById('track');
